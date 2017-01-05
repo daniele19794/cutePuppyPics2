@@ -1,0 +1,84 @@
+<!--
+  Generated template for the Ordine page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center >Ordine</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="white" [hidden]="!isOrdineVuoto()" text-center>
+    <font style="font-size:20px">   {{getLabelTotale()}}  </font>
+    <br>
+    <font class="titolo"><b>{{getLabelPrezzoTotale()}} &euro;</b></font>
+  </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content >
+  
+  
+    <ion-list no-lines text-center [hidden]="isOrdineVuoto()">
+      <br>
+      l'ordine è vuoto
+    </ion-list>
+  
+  
+  
+    <ion-row  *ngFor="let pizza of pizzeOrdine" center style="border-bottom: 1px solid #dedede">
+    <ion-col width-10 > <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removePizza(pizza.pizza)"></ion-icon> </ion-col>
+     <ion-col width-80 text-center style="white-space: initial" >
+     {{pizza.quantita}} X 
+       {{pizza.pizza.nome}}
+
+       {{getLabelModifichePizza(pizza.pizza)}}
+     </ion-col>
+      <ion-col width-10  text-right>
+      
+      <ion-icon name="ios-create-outline" color="secondary" (click)="modifyPizza(pizza.pizza)"></ion-icon>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row  *ngFor="let bibita of bibiteOrdine" center style="border-bottom: 1px solid #dedede">
+    <ion-col width-10 >
+      <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removeBibita(bibita)"></ion-icon>
+      </ion-col>
+     <ion-col width-80 text-center style="white-space: initial" >
+        {{bibita.quantita}}
+       X
+       {{bibita.bibita.nome}}
+     </ion-col>
+    <ion-col width-10  text-right>
+      <ion-icon name="ios-add-circle-outline" color="secondary" (click)="addBibita(bibita)"></ion-icon>
+      </ion-col>
+    </ion-row>
+  
+</ion-content>
+
+<ion-footer>
+ <ion-toolbar color="white">
+   
+<ion-grid>
+ <ion-row>
+   <ion-col width-50 text-center >
+     <button ion-button style="width:100%;height:100%; background-color: #efab18;">
+       <ion-icon name="md-call" class="buttonCall" ></ion-icon>
+        <a  href="tel:0457364816" style="text-decoration:none; color:black" > <font class="buttonCall">&nbsp; Forette</font> </a>
+       
+     </button>
+   </ion-col>
+   <ion-col width-50 text-center>
+     <button ion-button style="width:100%; height:100%;background-color: #efab18;">
+       <ion-icon name="md-call" class="buttonCall" ></ion-icon>
+       <a  href="tel:0457971152" style="text-decoration:none; color:black" > <font class="buttonCall">&nbsp; Povegliano</font> </a>
+
+     </button>
+   </ion-col>
+ </ion-row>
+</ion-grid>
+ </ion-toolbar>
+</ion-footer>

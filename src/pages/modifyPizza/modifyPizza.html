@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{pizza.nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  
+
+
+  
+  <ion-list>
+  
+    
+    <ion-list-header>
+   Ingredienti
+ </ion-list-header>
+  
+    <ion-item *ngFor="let ingrediente of pizza.ingredienti" [style.background-color]= "!isIngredienteRemoved(ingrediente) ? '#f8f8f8' : '' ">
+      {{ingrediente}}
+      <ion-icon name="ios-add-circle-outline" color="secondary" [hidden]="!isIngredienteRemoved(ingrediente)" (click)="addIngrediente(ingrediente)" item-right></ion-icon>
+      <ion-icon name="ios-remove-circle-outline" color="secondary" [hidden]="isIngredienteRemoved(ingrediente)" (click)="removeIngrediente(ingrediente)" item-right></ion-icon>
+
+    </ion-item>
+    <ion-item *ngFor="let ingrediente of pizza.dopoCottura" [style.background-color]= "!isIngredienteRemoved(ingrediente) ? '#f8f8f8' : '' ">
+      {{ingrediente}}
+      <ion-icon name="ios-add-circle-outline"  color="secondary" [hidden]="!isIngredienteRemoved(ingrediente)" (click)="addIngrediente(ingrediente)" item-right></ion-icon>
+      <ion-icon name="ios-remove-circle-outline" color="secondary" [hidden]="isIngredienteRemoved(ingrediente)" (click)="removeIngrediente(ingrediente)" item-right></ion-icon>
+
+    </ion-item>
+    
+  </ion-list>
+      
+<ion-list radio-group>
+  <ion-list-header>
+  Pasta
+  </ion-list-header>
+  <ion-item [style.background-color]= "isTipoPasta('normale') ? '#f8f8f8' : '' ">
+    <ion-label> normale</ion-label>
+  
+  <ion-radio  value="secondary"  color="secondary"  [checked]="isTipoPasta('normale')" item-right (click)="setTipoPastaFinale('normale')"></ion-radio>
+  </ion-item>
+  <ion-item [style.background-color]= "isTipoPasta('integrale') ? '#f8f8f8' : '' ">
+    <ion-label> integrale</ion-label>
+    <ion-radio color="secondary"  value="integrale" [checked]="isTipoPasta('integrale')" item-right (click)="setTipoPastaFinale('integrale')"></ion-radio>
+  </ion-item>
+  <ion-item [style.background-color]= "isTipoPasta('verace') ? '#f8f8f8' : '' ">
+    <ion-label> verace</ion-label>
+    <ion-radio color="secondary"  value="verace" [checked]="isTipoPasta('verace')" item-right (click)="setTipoPastaFinale('verace')"></ion-radio>
+  </ion-item>
+  <ion-item [style.background-color]= "pizza.doppiaPasta ? '#f8f8f8' : '' ">
+    <ion-label> doppia pasta</ion-label>
+    <ion-toggle color="secondary" [(ngModel)]="pizza.doppiaPasta" (click)="setDoppiaPasta()"></ion-toggle>
+    
+  </ion-item>
+  </ion-list>
+    
+    
+  
+  <ion-list-header>
+ Aggiunte
+</ion-list-header>
+
+  <ion-item *ngFor="let aggiunta of aggiunte" [style.background-color]= "isAggiuntaPresente(aggiunta) ? '#f8f8f8' : '' ">
+    {{aggiunta.nome}}
+    <h2 item-right>&euro; {{aggiunta.prezzo}}</h2>
+  <ion-icon name="ios-add-circle-outline" color="secondary" [hidden]="isAggiuntaPresente(aggiunta)" (click)="addAggiunta(aggiunta)" item-right></ion-icon>
+  <ion-icon name="ios-remove-circle-outline"  color="secondary" [hidden]="!isAggiuntaPresente(aggiunta)" (click)="removeAggiunta(aggiunta)" item-right></ion-icon>
+
+  
+  </ion-item>
+  
+  
+
+
+  
+
+
+</ion-content>

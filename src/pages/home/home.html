@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title text-center>Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-slides pager>
+   <ion-slide *ngFor="let slide of slides">
+    
+     <img [src]="slide.image" class="slide-image"/>
+     <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+     <p [innerHTML]="slide.description"></p>
+   </ion-slide>
+   <ion-slide>
+     <ion-toolbar>
+     </ion-toolbar>
+     <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+     <h2 class="slide-title">Ready to Play?</h2>
+     <button ion-button large clear icon-right>
+       Continue
+       <ion-icon name="arrow-forward"></ion-icon>
+     </button>
+   </ion-slide>
+ </ion-slides> -->
+
+
+  
+
+  <ion-list no-lines>
+    <ion-item text-center (click)="vaiAPizze(1,'Novità Estate')" >
+      Novità Estate
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(2,'Linea Oro')">
+      Linea Oro
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(3, 'Le Stagionali 2015')" >
+      Le Stagionali 2015
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(4, 'Le Stagionali Invernali')">
+      Le Stagionali Invernali
+
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(5,'Linea Oro')">
+      Linea Oro
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(6,'Pizze Bianche')">
+      Pizze Bianche
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(7,'Le Insolite')">
+      Le Insolite
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(8, 'Le Classiche')">
+      Le Classiche
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(9,'I nostri calzoni')">
+      I nostri Calzoni
+    </ion-item>
+    <ion-item text-center (click)="vaiAPizze(10, 'Panara 45cm')">
+      Panara 45cm
+    </ion-item>
+    <ion-item text-center (click)="vaiABibite()">
+      Bibite
+    </ion-item>
+  </ion-list>
+  
+  
+
+  <!-- <ion-list>
+  <ion-list-header>
+    Action
+  </ion-list-header>
+  
+
+  
+  
+  <ion-item *ngFor="let pizza of pizze">
+    {{pizza.name}}
+    <br>
+    {{pizza.ingredienti}}
+  </ion-item>
+  
+  
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list> -->
+
+</ion-content>

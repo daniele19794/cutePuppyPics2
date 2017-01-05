@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title text-center [hidden]="showSearchBar" >{{nomeCategoria}}</ion-title>
+    <ion-buttons start>
+        <button ion-button icon-only color="royal" (click)="setShowSearchBar()">
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-searchbar (ionInput)="searchPizza($event)" placeholder="cerca" [hidden]="!showSearchBar" ></ion-searchbar>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+
+  
+  <ion-item *ngFor="let pizza of pizze">
+   <ion-row>
+     <ion-col width-90>
+       <ion-row>
+         <ion-col width-80  text-left>
+           <h2>
+             <b>{{pizza.nome}}</b>
+             <img src="img/novita.png" width="40px" [hidden]="!pizza.novita">
+            <img src="img/peperoncino.png" width="28px" [hidden]="!pizza.piccante">
+           </h2>
+         </ion-col>
+         <ion-col width-20 text-right>
+            <h2> <b> &euro; {{pizza.prezzo}}</b></h2>
+         </ion-col>
+       </ion-row>
+       <ion-row align="justify" style="white-space: initial;">
+         <div align="justify" style="white-space: initial;">
+             {{formatArray(pizza.ingredienti)}}
+           <img src="img/freccia.png" width="10px" [hidden]="(!pizza.dopoCottura || pizza.dopoCottura.length==0)">
+            {{formatArray(pizza.dopoCottura)}}
+         </div>
+        </ion-row>
+       </ion-col>
+     
+     <ion-col width-10 text-right>
+       <ion-icon color="secondary" name="ios-add-circle-outline" (click)="addPizza(pizza)"></ion-icon>
+
+     </ion-col>
+     
+   </ion-row>
+  
+   
+   
+  <ion-row  *ngFor="let pizzaOrdine of pizzeNellOrdine(pizza)" center style="border-bottom: 1px solid #dedede;background-color: #f8f8f8">
+  <ion-col width-10 padding-left style="padding-left: 5px "> <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removePizza(pizzaOrdine.pizza)"></ion-icon> </ion-col>
+   <ion-col width-80 text-center style="white-space: initial" >
+   
+   
+     {{pizzaOrdine.quantita}}   X 
+     {{pizzaOrdine.pizza.nome}}
+
+      {{getLabelModifichePizza(pizzaOrdine.pizza)}}
+   </ion-col>
+    <ion-col width-10  text-right>
+    
+    <ion-icon name="ios-create-outline" color="secondary" (click)="modifyPizza(pizzaOrdine.pizza)"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+
+  </ion-item>
+  
+  
+  
+
+
+  <!-- <ion-list>
+  <ion-list-header>
+    Action
+  </ion-list-header>
+  
+
+  
+  
+  
+  
+  
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list> -->
+
+</ion-content>

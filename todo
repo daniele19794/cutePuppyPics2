@@ -1,0 +1,2 @@
+- nella pagina html pizza usare gli attributi item-right per allineari
+- nella classe ModifyPizzaPage nel costruttore trovare un modo più furbo per creare un oggetto ts a partire da un json

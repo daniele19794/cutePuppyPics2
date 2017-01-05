@@ -1,0 +1,65 @@
+<!--
+  Generated template for the Bibite page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Bibite</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item *ngFor="let bibita of bibite">
+   <ion-row>
+     <ion-col width-90>
+       <ion-row>
+         <ion-col width-80  text-left>
+           <h2>
+             <b>{{bibita.nome}}</b>
+             
+           </h2>
+         </ion-col>
+         <ion-col width-20 text-right>
+            <h2> <b> &euro; {{bibita.prezzo}}</b></h2>
+         </ion-col>
+       </ion-row>
+       <ion-row align="justify" style="white-space: initial;">
+         <div align="justify" style="white-space: initial;">
+             {{bibita.descrizione}}
+          
+         </div>
+        </ion-row>
+       </ion-col>
+     
+     <ion-col width-10 text-right>
+       <ion-icon color="secondary" name="ios-add-circle-outline" (click)="addBibita(bibita)"></ion-icon>
+
+     </ion-col>
+     
+   </ion-row>
+   
+   <ion-row center style="border-bottom: 1px solid #dedede;background-color: #f8f8f8" [hidden]="!hasOrdineBibita(bibita)">
+   <ion-col width-10 padding-left style="padding-left: 5px "> <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removeBibita(bibita)"></ion-icon> </ion-col>
+   <ion-col width-80 text-center style="white-space: initial" >
+    
+      {{howMuchBibiteInOrdine(bibita)}}
+    </ion-col>
+    <ion-col width-10  text-right>
+     &euro;
+     {{getPrice(bibita)}}
+    </ion-col>
+   </ion-row>
+   
+   
+ </ion-item>
+
+
+
+
+</ion-content>

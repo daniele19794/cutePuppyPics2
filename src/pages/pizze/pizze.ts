@@ -7,7 +7,6 @@ import { NavParams } from 'ionic-angular';
 import { ModifyPizzaPage } from '../modifyPizza/modifyPizza';
 import { ModifyPage } from '../modify/modify';
 import * as _ from 'underscore';
-import { OrdinePizza } from '../../ordine';
 
 
 
@@ -22,7 +21,7 @@ export class PizzePage {
     nomeCategoria: string;
     idCategoria: string;
     showSearchBar=false;
-    pizzeOrdine: OrdinePizza[];
+  
 
     constructor(public navCtrl: NavController,private navParams: NavParams,  private ordineService: OrdineService) {
         // this.pizze = _pizzaService.getAll();
@@ -51,14 +50,11 @@ export class PizzePage {
     
     addPizza(pizza:  Pizza){
     
-      console.log("add Pizza " + pizza.nome + " --> " + JSON.stringify(pizza));
       this.ordineService.addPizza(pizza);
-    //pizza.nome="testomodificato";
-      console.log("addPizza ordine inizio " + JSON.stringify(this.ordineService.getPizzeOrdine()));
-      
+    
     }
     removePizza(pizza:  Pizza){
-      console.log(pizza.nome);
+      
       this.ordineService.removePizza(pizza);
     }
     
@@ -85,14 +81,7 @@ export class PizzePage {
     
     
     pizzeNellOrdine(pizza: Pizza){
-      // var pizzeOrdine=[];
-      //
-      // let pr: Pizza[] = this.ordineService.getPizze();
-      // for (let p in pr) {
-      //        if(pr[p].nome == pizza.nome){
-      //          pizzeOrdine.push(pr[p]);
-      //        }
-      // }
+      
       return this.ordineService.getPizzeStessoNomeInOrdine(pizza);
     }
     

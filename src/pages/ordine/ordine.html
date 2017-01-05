@@ -30,16 +30,16 @@
   
   
     <ion-row  *ngFor="let pizza of pizzeOrdine" center style="border-bottom: 1px solid #dedede">
-    <ion-col width-10 > <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removePizza(pizza.pizza)"></ion-icon> </ion-col>
+    <ion-col width-10 > <ion-icon color="secondary" name="ios-remove-circle-outline" (click)="removePizza(pizza)"></ion-icon> </ion-col>
      <ion-col width-80 text-center style="white-space: initial" >
-     {{pizza.quantita}} X 
-       {{pizza.pizza.nome}}
+     
+       {{pizza.nome}}
 
-       {{getLabelModifichePizza(pizza.pizza)}}
+       {{getLabelModifichePizza(pizza)}}
      </ion-col>
       <ion-col width-10  text-right>
       
-      <ion-icon name="ios-create-outline" color="secondary" (click)="modifyPizza(pizza.pizza)"></ion-icon>
+      <ion-icon name="ios-create-outline" color="secondary" (click)="modifyPizza(pizza)"></ion-icon>
       </ion-col>
     </ion-row>
   

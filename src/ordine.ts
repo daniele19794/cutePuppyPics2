@@ -4,25 +4,6 @@ import { Pizza } from './pizza';
 import * as _ from 'underscore';
 
 
-export class OrdinePizza {
-    quantita: number=0;
-    pizza: Pizza;
-  
-    constructor(quantita: number, pizza: Pizza){
-      
-      this.pizza=pizza;
-      this.quantita= quantita;
-    }
-    
-    addPizza(){
-      this.quantita = this.quantita+ 1;
-    }
-    
-    removePizza(){
-      this.quantita = this.quantita- 1;
-    }
- }
-
  export class OrdineBibita {
      quantita: number=0;
      bibita: Bibita;

@@ -6,8 +6,6 @@ import { PizzaService } from '../../pizza.services';
 import * as _ from 'underscore';
 import { Pizza } from '../../pizza';
 import { OrdineBibita } from '../../ordine';
-import { OrdinePizza } from '../../ordine';
-
 import { Bibita } from '../../bibite';
 
 import { ModifyPizzaPage } from '../modifyPizza/modifyPizza';
@@ -26,18 +24,15 @@ import { ModifyPizzaPage } from '../modifyPizza/modifyPizza';
 })
 export class OrdinePage {
 
-  pizze: Pizza[];
   bibite: Bibita[];
   bibiteOrdine: OrdineBibita[];
-  pizzeOrdine: OrdinePizza[];
+  pizzeOrdine: Pizza[];
   pizzaService: PizzaService;
 
   constructor(public navCtrl: NavController ,private navParams: NavParams,   private ordineService: OrdineService) {
     this.pizzaService =  new PizzaService();
-    this.pizze = this.ordineService.getPizze();
-    this.bibite = this.ordineService.getBibite();
     this.bibiteOrdine = this.ordineService.getBibiteOrdine();
-    this.pizzeOrdine = this.ordineService.getPizzeOrdine();
+    this.pizzeOrdine = this.ordineService.getPizze();
     console.log("Ordine page trovate " + this.pizzeOrdine.length);
   }
   

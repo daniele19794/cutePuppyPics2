@@ -20,25 +20,20 @@ export class ModifyPizzaPage {
     pizza: Pizza;
     aggiunte: Aggiunta[];
     pizzaService: PizzaService;
-    //ordineService: OrdineService;
+    
 
     constructor(public navCtrl: NavController,private navParams: NavParams, private ordineService: OrdineService,private aggiunteService: AggiunteService) {
-        // this.pizze = _pizzaService.getAll();
         console.log("new ModifyPizzaPage");
-        //this.pizza= navParams.get('pizza');
         this.pizza = JSON.parse(JSON.stringify(navParams.get('pizza')));
         this.aggiunte= aggiunteService.getAll();
         this.pizzaService = new PizzaService();
         
-        //this.pizza.nome="modificato";
-        console.log("modificapizzapage.constructor " + JSON.stringify(ordineService.getPizzeOrdine()));
-        
+      
     }
     
     addAggiunta(aggiunta:  Aggiunta){
       console.log(aggiunta.nome);
       this.ordineService.removePizza(this.pizza);
-      //this.ordineService.addPizza(pizza);
       this.pizzaService.addAggiunta(this.pizza,aggiunta);
       this.ordineService.addPizza(this.pizza);
       
@@ -46,7 +41,6 @@ export class ModifyPizzaPage {
     removeAggiunta(aggiunta:  Aggiunta){
       console.log(aggiunta.nome);
       this.ordineService.removePizza(this.pizza);
-      //this.ordineService.addPizza(pizza);
       this.pizzaService.removeAggiunta(this.pizza,aggiunta);
       this.ordineService.addPizza(this.pizza);
     }
@@ -60,20 +54,13 @@ export class ModifyPizzaPage {
     }
     
     removeIngrediente(ingrediente: string){
-      console.log("removeIngrediente rimuovi " + ingrediente);
-      //console.log("pizza prima " + JSON.stringify(this.pizza));
-      console.log("removeIngrediente ordine  inizio " + JSON.stringify(this.ordineService.getPizzeOrdine()));
-      
+    
       this.ordineService.removePizza(this.pizza);
-      console.log("removeIngrediente ordine  dopo rimozione " + JSON.stringify(this.ordineService.getPizzeOrdine()));
-      
+        
       this.pizzaService.addRimozione(this.pizza,ingrediente);
       
       this.ordineService.addPizza(this.pizza);
-      console.log("removeIngrediente ordine  fine " + JSON.stringify(this.ordineService.getPizzeOrdine()));
-      
-      //console.log("pizza dopo " + JSON.stringify(this.pizza));
-      console.log("removeIngrediente ordine  fine " + JSON.stringify(this.ordineService.getPizzeOrdine()));
+    
     }
     addIngrediente(ingrediente: string){
       console.log("aggiungi " + ingrediente);
